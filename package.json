@@ -1,0 +1,25 @@
+{
+  "name": "lexical_analyzer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/tape ./analisadorLexico/tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asuha/tradutores.git"
+  },
+  "author": "Julio Renner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asuha/tradutores/issues"
+  },
+  "homepage": "https://github.com/asuha/tradutores#readme",
+  "dependencies": {
+    "tape": "^4.9.0"
+  }
+}
