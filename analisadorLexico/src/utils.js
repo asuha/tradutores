@@ -1,15 +1,3 @@
-function isArithmeticOperator(key) {
-    return /\+|\-|\*|\//.test(key);
-}
-
-function isEqualOperator(key) {
-    return /^=$/.test(key);
-}
-
-function isIgnoredKey(key) {
-    return ignoredKeys[key] !== undefined;
-}
-
 function isNumber(key){
     return !isNaN(key)
 }
@@ -28,7 +16,6 @@ function split(line) {
 }
 
 module.exports = {
-    isIgnoredKey,
     isNumber,
     isReservedKey,
     split
