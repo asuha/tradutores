@@ -2,7 +2,7 @@
     "int": "reserved_word",
     "float": "reserved_word",
     "void": "reserved_word",
-    "string": "reserved_word",
+    "String": "reserved_word",
     "if": "reserved_word",
     "else": "reserved_word",
     "do": "reserved_word",
@@ -25,5 +25,7 @@
     "+": "Arith_Op",
     "-": "Arith_Op",
     "*": "Arith_Op",
-    "/": "Arith_Op"
+    "/": "Arith_Op",
+    "&&": "logic_op",
+    "||": "logic_op"
 }
