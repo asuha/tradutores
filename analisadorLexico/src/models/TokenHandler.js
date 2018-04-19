@@ -25,12 +25,15 @@ class TokensHandler {
     }
 
     _generateToken(value) {
-        if(this._ignoreFlag || this._isNotNecessary(value))
+        if(this._isNotNecessary(value) || this._ignoreFlag)
             return "";
         
         const tokenKey = this._getTokenType(value);
 
-        return `[${tokenKey},${this._idMap[value] || value}]`;
+        if (this._stringFlag)
+            return `[${tokenKey},${value}]`;
+        else 
+            return `[${tokenKey},${this._idMap[value] || value}]`;
     }
 
     _getTokenType(value) {
@@ -51,16 +54,22 @@ class TokensHandler {
     }
 
     _isNotNecessary(value) {
-        if (this._isComment(value) || this._isString(value))
-            return true;
-
-        if (ignorePull[value])
-            this._ignoreQueue.push(ignorePull[value])
-
         if (this._ignoreQueue.next() === value) {
             this._ignoreQueue.shift();
             return true;
         }
+
+        if (this._ignoreQueue.length() > 0) {
+            return true;
+        }
+        
+        if (ignorePull[value]) {
+            this._ignoreQueue.push(ignorePull[value]);
+            return true;
+        }
+
+        if (this._isComment(value) || this._isString(value))
+            return true;
 
         return false;
     }
@@ -68,10 +77,8 @@ class TokensHandler {
     _isComment(value) {
         let currentStatus = this._ignoreFlag;
         
-        if (value === "//" || value === "/*") {
+        if (value === "//") {
             this._ignoreFlag = true;
-        } else if (value === "*/") {
-            this._ignoreFlag = false;
         }
 
         return currentStatus !== this._ignoreFlag;
