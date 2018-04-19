@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/asuha/tradutores#readme",
   "dependencies": {
-    "npm": "^5.8.0",
     "tape": "^4.9.0"
   }
 }
