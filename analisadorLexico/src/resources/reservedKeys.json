@@ -10,7 +10,7 @@
     "switch": "reserved_word",
     "for": "reserved_word",
     "return": "reserved_word",
-    "null": "reserved_word",
+    "NULL": "reserved_word",
     "double": "reserved_word",
     "bool": "reserved_word",
     "break": "reserved_word",
@@ -34,5 +34,6 @@
     "{": "l_bracket",
     "}": "r_bracket",
     ";": "semicolon",
-    ",": "comma"
+    ",": "comma",
+    "#include": "reserved_word"
 }
