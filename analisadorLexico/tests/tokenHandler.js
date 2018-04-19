@@ -80,7 +80,7 @@ test('strings', t => {
     let code3 = `// " "`;
 
     t.equal(tokenInstance.generateTokens(code), '[reserved_word,string][id,1][equal,=][string_literal,masculino][semicolon,;]');
-    t.equal(tokenInstance.generateTokens(code2), '[reserved_word,string][id,2][equal,=][string_literal,sexo][string_literal,masculino][semicolon,;]')
+    t.equal(tokenInstance.generateTokens(code2), '[reserved_word,string][id,2][equal,=][string_literal,sexo masculino][semicolon,;]')
     t.equal(tokenInstance.generateTokens(code3), '');
 
     t.end();

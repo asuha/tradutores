@@ -30,15 +30,15 @@ class TokensHandler {
         
         const tokenKey = this._getTokenType(value);
 
-        if (this._stringFlag)
-            return `[${tokenKey},${value}]`;
+        if (this._isString(value))
+            return `[${tokenKey},${/"(.*)"/.exec(value)[1]}]`;
         else 
             return `[${tokenKey},${this._idMap[value] || value}]`;
     }
 
     _getTokenType(value) {
 
-        if (this._stringFlag === true)
+        if (this._isString(value))
             return "string_literal";
         
         if (utils.isNumber(value))
@@ -51,6 +51,10 @@ class TokensHandler {
             this._idMap[value] = this._idCount++;
         
         return "id";
+    }
+
+    _isString(value) {
+        return /".*"/.test(value);
     }
 
     _isNotNecessary(value) {
@@ -68,7 +72,7 @@ class TokensHandler {
             return true;
         }
 
-        if (this._isComment(value) || this._isString(value))
+        if (this._isComment(value))
             return true;
 
         return false;
@@ -82,16 +86,6 @@ class TokensHandler {
         }
 
         return currentStatus !== this._ignoreFlag;
-    }
-
-    _isString(value) {
-        let currentStatus = this._stringFlag;
-
-        if (value === `"`) {
-            this._stringFlag = !(this._stringFlag);
-        }
-
-        return currentStatus !== this._stringFlag;
     }
 
     afterGenerateTokens() {
