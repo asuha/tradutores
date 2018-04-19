@@ -9,7 +9,6 @@ class TokensHandler {
         this._idCount = 1;
         this._ignoreQueue = new Queue();
         this._ignoreFlag = false;
-        this._stringFlag = false;
     }
 
     generateTokens(codeLine) {
