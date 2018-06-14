@@ -1,0 +1,28 @@
+{
+  "name": "decaf_translator",
+  "version": "1.0.0",
+  "description": "Translator for decaf language",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/tape ./tests/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juliorenner/tradutores.git"
+  },
+  "keywords": [
+    "unisinos",
+    "tradutores",
+    "lexical",
+    "analyzer"
+  ],
+  "author": "Julio Renner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juliorenner/tradutores/issues"
+  },
+  "homepage": "https://github.com/juliorenner/tradutores#readme",
+  "dependencies": {
+    "tape": "^4.9.1"
+  }
+}

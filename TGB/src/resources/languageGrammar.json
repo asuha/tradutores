@@ -1,0 +1,110 @@
+{
+    "program": [
+        ["class", "<class-name>", "'{'", "<field-decl>*", "<method-decl>*", "'}'"]
+    ],
+    "class-name": [
+        ["id"]
+    ],
+    "field-decl": [
+        ["<type>", "{", [
+                ["id+"],
+                ["{", "id", "'['", "intConstant", "']", "}"]
+            ], "}*", ",", "';'"
+        ],
+        ["<type>", "id", "'='", "<constant>", "';'"]
+    ],
+    "method-decl": [
+        [ "{", [
+                ["<type>"], 
+                ["void"]
+            ], "id", "'('", "[", "{", "<type>", "id", "}+", ",", "]", "')", "<block>"
+        ]
+    ],
+    "block": [
+        ["'{'", "<var-decl>*", "<statement>*", "'}'"]
+    ],
+    "var-decl": [
+        ["<type>", "{", "id", "}+", ",", "';'"]
+    ],
+    "type": [
+        ["int"],
+        ["bool"]
+    ],
+    "statement": [
+        ["<assign>", "';'"],
+        ["<method-call>", "';'"],
+        ["if", "'(", "<expr>", "')'", "<block>", "[", "else", "<block>", "]"],
+        ["while", "'('", "<expr>", "')'", "<block>"],
+        ["for", "'('", "{", "<assign>", "}+", ",", "')'", "<block>"],
+        ["return", "[", "<expr>", "]", "';'"],
+        ["break", ";"],
+        ["continue", ";"],
+        ["<block>"]
+    ],
+    "assign": [
+        ["<lvalue>", "'='", "<expr>"]
+    ],
+    "method-call": [
+        ["method-name", "'('", "[", "{", "<expr>", "}+", ",", "')'"],
+        ["callout", "'('", "stringConstant", "[", "{", "','", "{", "<callout-arg>", "}+", ",", "}", "]", "')'"]
+    ],
+    "method-name": [
+        ["id"]
+    ],
+    "callout-arg": [
+        ["<expr>"],
+        ["stringConstant"]
+    ],
+    "lvalue": [
+        ["id"],
+        ["id", "'['", "<expr>", "']'"]
+    ],
+    "expr": [
+        ["lvalue"],
+        ["method-call"],
+        ["constant"],
+        ["<expr>", "<bin-op>", "<expr>"],
+        ["'-'", "<expr>"],
+        ["'!'", "<expr>"],
+        ["'('", "<expr>", "')'"]
+    ],
+    "bin-op": [
+        ["<arith-op>"],
+        ["<rel-op>"],
+        ["<eq-op>"],
+        ["<cond-op>"]
+    ],
+    "arith-op": [
+        ["+"],
+        ["-"],
+        ["*"],
+        ["'/'"],
+        ["'<<'"],
+        ["'>>'"],
+        ["'%'"],
+        ["rot"]
+    ],
+    "rel-op": [
+        ["'<'"],
+        ["'>'"],
+        ["'<='"],
+        ["'>='"]
+    ],
+    "eq-op": [
+        ["'=='"],
+        ["'!='"]
+    ],
+    "cond-op": [
+        ["'&&'"],
+        ["'||'"]
+    ],
+    "constant": [
+        ["intConstant"],
+        ["charConstant"],
+        ["<bool-constant>"]
+    ],
+    "bool-constant": [
+        ["true"],
+        ["false"]
+    ]
+}
