@@ -5,7 +5,7 @@ class TokensHandler {
     }
 
     consume() {
-        this.tokens.shift();
+        return this.tokens.shift();
     }
 
     //TODO: Create a stack that keep the consumed values
